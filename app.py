@@ -29,7 +29,7 @@ def preprocess_image(image):
     # Convert to NumPy array and normalize
     image = np.array(image) / 255.0  
     
-    # Ensure it's in the correct format for the model (batch_size, height, width, channels)
+    #correct format for the model (batch_size, height, width, channels)
     if len(image.shape) == 2:  # If grayscale, convert to RGB
         image = np.stack((image,) * 3, axis=-1)
     
