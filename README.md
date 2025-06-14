@@ -1,101 +1,122 @@
-🧠 Brain Tumor Detection Using YOLOv5 and Streamlit
-This project presents an end-to-end pipeline for detecting brain tumors (glioma, meningioma, pituitary, or no tumor) in MRI scans using a custom-trained YOLOv5 object detection model. The solution includes data annotation, model training, and deployment via a Streamlit web application.
+# 🧠 Brain Tumor Detection Using YOLOv5 and Streamlit
 
-📌 Project Highlights
-Annotated and labeled bounding boxes using LabelImg
+This project presents an end-to-end solution for **brain tumor detection** in MRI images using a custom-trained **YOLOv5 object detection** model. It includes steps for data annotation, model training, and a web-based inference app built with **Streamlit**.
 
-Trained custom YOLOv5 model on annotated MRI data
+## 📌 Project Highlights
 
-Achieved high detection accuracy across 4 tumor types
+- Custom annotations using **LabelImg**
+- Object detection with **YOLOv5**
+- Real-time tumor classification and bounding boxes
+- **Streamlit app** for interactive MRI analysis
+- Classes supported: `glioma`, `meningioma`, `pituitary`, `notumor`
 
-Built an interactive Streamlit app for real-time predictions
+## 🗂️ Folder Structure
 
-🗂️ Folder Structure
-
+```
 brain-tumor-detection/
 ├── dataset/
 │   ├── images/
-│   │   ├── train/         # Training images
-│   │   └── val/           # Validation images
+│   │   ├── train/ # Training images
+│   │   └── val/   # Validation images
 │   ├── labels/
-│   │   ├── train/         # YOLO-format bounding boxes
+│   │   ├── train/ # YOLO-format labels
 │   │   └── val/
-│   └── data.yaml          # Dataset config for YOLOv5
-├── runs/                  # YOLOv5 training outputs
-├── yolov5/                # YOLOv5 repo (cloned from Ultralytics)
-├── brain-tumor-app/       # Streamlit app folder
+│   └── data.yaml  # Dataset config
+├── yolov5/        # YOLOv5 repo (cloned)
+├── runs/          # Training outputs
+├── brain-tumor-app/ # Streamlit app
 │   ├── app.py
 │   ├── best.pt
 │   └── requirements.txt
-└── README.md              # Project documentation
-🧪 Dataset and Annotation
-Dataset includes MRI scans of four classes:
+└── README.md      # This file
+```
 
-glioma
+## 🧪 Dataset and Annotation
 
-meningioma
+- MRI images organized by class: `glioma`, `meningioma`, `pituitary`, `notumor`
+- Annotated using **LabelImg**
+- Bounding boxes saved in YOLOv5 format (`.txt`)
+- Split into **train** and **val** sets
+- Configured with `data.yaml` for YOLOv5
 
-pituitary
+## 🧠 Model Training (YOLOv5)
 
-notumor
-
-Annotation was performed using LabelImg
-
-Bounding boxes were saved in YOLOv5 format (.txt)
-
-Split into training and validation sets
-
-🧠 Model Training (YOLOv5)
-Clone the YOLOv5 repo:
-
-bash
-Copy
-Edit
+1. Clone YOLOv5 repo:
+```bash
 git clone https://github.com/ultralytics/yolov5
 cd yolov5
 pip install -r requirements.txt
-Train the model:
+```
 
-bash
-Copy
-Edit
-python train.py --img 640 --batch 16 --epochs 50 --data ../dataset/data.yaml --weights yolov5s.pt --name tumor-detect
-Output will be saved to runs/train/tumor-detect/
+2. Train the model:
+```bash
+python train.py --img 640 --batch 16 --epochs 50 \
+    --data ../dataset/data.yaml --weights yolov5s.pt --name tumor-detect
+```
 
-🚀 Streamlit Web App
-A lightweight web UI to upload and analyze MRI images using the trained YOLOv5 model.
+Final weights saved at:
+```
+runs/train/tumor-detect/weights/best.pt
+```
 
-🔧 Setup & Run
-bash
-Copy
-Edit
+## 🚀 Streamlit Web App
+
+An easy-to-use UI to upload MRI images and detect brain tumors in real time.
+
+### 🔧 Installation
+
+```bash
 cd brain-tumor-app
 pip install -r requirements.txt
+```
+
+### ▶️ Run App
+
+```bash
 streamlit run app.py
-Then open: http://localhost:8501
+```
 
-🖼️ Sample Results
-<p align="center"> <img src="assets/sample1.jpg" width="45%"> <img src="assets/sample2.jpg" width="45%"> </p>
-📈 Model Performance
-Metric	Validation Set
-mAP@0.5	0.92
-mAP@0.5:0.95	0.68
-Precision	0.94
-Recall	0.91
+Local: http://localhost:8501
 
-🛠 Tech Stack
-Python 3.9+
+Upload image → Get prediction + bounding box + class + confidence
 
-YOLOv5
+## 📈 Model Performance
 
-PyTorch
+| Metric        | Validation Set |
+|---------------|----------------|
+| mAP@0.5      | 0.92          |
+| mAP@0.5:0.95 | 0.68          |
+| Precision     | 0.94          |
+| Recall        | 0.91          |
 
-LabelImg
+## 🛠 Tech Stack
 
-Streamlit
+- Python 3.9+
+- PyTorch
+- YOLOv5
+- LabelImg
+- OpenCV
+- Streamlit
 
-OpenCV & Pillow
+## 📝 Notes
 
+- Optimized for Apple Silicon (ARM64)
+- Use LabelImg for bounding box annotation in training & testing sets
+- Clean-up logic in Streamlit app ensures no leftover files
 
-📬 Contact
+## 📬 Contact
+
 Created by Rahul Chettri
+- 📧 [your-email@example.com]
+- 🌐 [LinkedIn](https://linkedin.com/in/your-profile) | [GitHub](https://github.com/your-username)
+
+## 📄 License
+
+MIT License. See LICENSE file for details.
+
+---
+
+[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org)
+[![YOLOv5](https://img.shields.io/badge/YOLOv5-v5.0-green.svg)](https://github.com/ultralytics/yolov5)
+[![Streamlit](https://img.shields.io/badge/Streamlit-v1.31.1-red.svg)](https://streamlit.io)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) 
