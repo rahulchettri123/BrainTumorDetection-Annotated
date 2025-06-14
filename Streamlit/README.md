@@ -101,14 +101,6 @@ If you encounter any issues:
    - Close other memory-intensive applications
    - Ensure you have sufficient RAM available
 
-## License
 
-[Add your license information here]
 
-## Contributing
 
-[Add contribution guidelines here]
-
-## Contact
-
-[Add your contact information here] 
