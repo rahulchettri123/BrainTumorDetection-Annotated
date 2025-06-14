@@ -107,14 +107,10 @@ Upload image → Get prediction + bounding box + class + confidence
 ## 📬 Contact
 
 Created by Rahul Chettri
-- 📧 [your-email@example.com]
-- 🌐 [LinkedIn](https://linkedin.com/in/your-profile) | [GitHub](https://github.com/your-username)
+- rahulchettri601@gmail.com
+- https://www.linkedin.com/in/rahulchettri123/
 
-## 📄 License
 
-MIT License. See LICENSE file for details.
-
----
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org)
 [![YOLOv5](https://img.shields.io/badge/YOLOv5-v5.0-green.svg)](https://github.com/ultralytics/yolov5)
